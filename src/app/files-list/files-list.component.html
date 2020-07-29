@@ -1,0 +1,10 @@
+<p>files-list works!</p>
+<input type="file"
+       id="file"
+       (change)="handleFileInput($event.target.files[0])">
+
+<ul class="files" style="list-style-type: none;">
+  <li *ngFor="let file of selectedFiles" style="width: 200px">
+    <app-file [file]="file"></app-file>
+  </li>
+</ul>
