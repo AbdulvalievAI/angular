@@ -1,0 +1,42 @@
+$brParent: 10px
+$sizeParent: 150px
+$mParent: 10px
+
+input
+  opacity: 0
+  visibility: hidden
+  position: absolute
+
+.addFileBtn
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  border: black 1px solid
+  cursor: pointer
+  text-align: center
+  background-color: white
+  transition: 0.3s
+  width: $sizeParent
+  min-width: $sizeParent
+  height: $sizeParent
+  min-height: $sizeParent
+  border-radius: $brParent
+  margin: $mParent
+  i
+    font-size: 50px
+    margin-bottom: 20px
+  &:hover
+    transition: 0.3s
+    background-color: rgb(0 0 0 / 4%)
+  &:active
+    transition: 0.3s
+    background-color: rgb(0 0 0 / 10%)
+
+ul
+  display: contents
+  flex-wrap: wrap
+  margin: 0
+  padding: 0
+  li
+    margin: $mParent

@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import * as uuid from 'uuid';
 
 @Component({
   selector: 'app-file',
@@ -6,42 +7,39 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./file.component.sass']
 })
 export class FileComponent implements OnInit {
-  @Input() file: File
+  @Input() file: File;
+  id: uuid;
   createDate: Date;
   thumbnailPath: string | ArrayBuffer;
-  constructor() {
-    /*this.file = file
-    // this.thumbnailPath = file.name
-    this.createDate = new Date()
-*/
-    /*
-    var reader = new FileReader();
+  path: string | ArrayBuffer;
 
-    reader.onload = (event: ProgressEvent) => {
-      this.url = (<FileReader>event.target).result;
-    }
-    */
+  constructor() {
+    this.id = uuid.v4();
+    this.createDate = new Date();
   }
 
   ngOnInit(): void {
-    console.log('FileComponent | constructor | file', this.file)
-    this.createDate = new Date()
+    console.log('FileComponent | constructor | file', this.file);
     const reader = new FileReader();
 
     reader.readAsDataURL(this.file);
     reader.onload = (event: ProgressEvent) => {
-      this.thumbnailPath = (<FileReader>event.target).result;
-      console.log('this.thumbnailPath 1',this.thumbnailPath)
-    }
+      this.thumbnailPath = (event.target as FileReader).result;
+      console.log('this.thumbnailPath 1', this.thumbnailPath);
+    };
+  }
 
-
-
-
-
-
-
-
-
+  /*
+  getThumbnail(file: File): string {
 
   }
+
+  open(): void {
+
+  }
+
+  remove(): void  {
+
+  }
+  */
 }
