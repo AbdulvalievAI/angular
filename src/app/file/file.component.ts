@@ -4,7 +4,10 @@ import * as uuid from 'uuid';
 @Component({
   selector: 'app-file',
   templateUrl: './file.component.html',
-  styleUrls: ['./file.component.sass']
+  styleUrls: [
+    './file.component.sass',
+    '../../../node_modules/material-icons/iconfont/material-icons.scss'
+  ]
 })
 export class FileComponent implements OnInit {
   @Input() file: File;

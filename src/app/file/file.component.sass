@@ -1,9 +1,35 @@
-$brParent: 10px
-$sizeParent: 150px
-$boxShadowParent: 6px 6px 21px 0 rgba(50, 50, 50, 0.47)
+@import "src/variables"
+.fileContent:hover .menuContainer
+    transition: 0.3s
+    opacity: 1
 
-div
+.thumb
   width: $sizeParent
   height: $sizeParent
   border-radius: $brParent
   box-shadow: $boxShadowParent
+  position: absolute
+
+.menuContainer
+  width: $sizeParent
+  height: $sizeParent
+  border-radius: $brParent
+  position: relative
+  background-color: rgb(0 0 0 / 0.4)
+  opacity: 0
+  display: flex
+  justify-content: space-evenly
+  flex-wrap: wrap
+  align-items: center
+  transition: 0.3s
+  i
+    color: white
+    font-size: 55px
+    cursor: pointer
+    border-radius: $brParent
+    &:hover
+      background-color: $backGHover
+    &:active
+      background-color: $backGActive
+
+
