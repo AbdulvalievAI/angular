@@ -5,13 +5,14 @@
          class="filePicker"
          multiple accept="image/*,image/jpeg,image/png"
          (change)="handleFileInput($event.target.files)">
-  <img src="assets/attach_file-24px.svg">
+  <img src="../../assets/attach_file-24px.svg">
   Добавить файл
 </label>
 
 <ul class="files" style="list-style-type: none;">
   <li *ngFor="let file of selectedFiles" style="width: 150px">
-    <app-file [file]="file"></app-file>
+    <app-file [file]="file" [selectedFiles]="selectedFiles"></app-file>
   </li>
 </ul>
+
 

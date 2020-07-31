@@ -1,12 +1,14 @@
 <div class="fileContent">
   <div class="thumb" style="overflow: hidden;">
-    <img style="height: 100%; object-fit: cover; width: 100%;"  src="{{thumbnailPath}}">
+    <img style="height: 100%; object-fit: cover; width: 100%;"  src="{{thumbnail}}">
   </div>
 
-  <div class="menuContainer">
-    <img class="openBtn" src="assets/visibility-24px.svg">
-    <img class="downloadBBtn" src="assets/vertical_align_bottom-24px.svg">
-    <img class="deleteBtn" src="assets/delete_outline-24px.svg">
+  <div [class.menuContainer]="!isShowProgress"
+       [class.menuContainerProgress]="isShowProgress">
+    <img class="openBtn" src="assets/visibility-24px.svg" (click)="open()">
+    <img class="downloadBBtn" src="assets/vertical_align_bottom-24px.svg" (click)="download()">
+    <img class="deleteBtn" src="assets/delete_outline-24px.svg" (click)="delete()">
+    <img class="progress" src="assets/progress.svg">
   </div>
 </div>
 
