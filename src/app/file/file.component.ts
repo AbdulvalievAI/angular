@@ -5,8 +5,7 @@ import * as uuid from 'uuid';
   selector: 'app-file',
   templateUrl: './file.component.html',
   styleUrls: [
-    './file.component.sass',
-    '../../../node_modules/material-icons/iconfont/material-icons.scss'
+    './file.component.sass'
   ]
 })
 export class FileComponent implements OnInit {
@@ -23,26 +22,36 @@ export class FileComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('FileComponent | constructor | file', this.file);
-    const reader = new FileReader();
-
-    reader.readAsDataURL(this.file);
-    reader.onload = (event: ProgressEvent) => {
-      this.thumbnailPath = (event.target as FileReader).result;
-      console.log('this.thumbnailPath 1', this.thumbnailPath);
-    };
+    this.getThumbnail(this.file);
   }
 
-  /*
-  getThumbnail(file: File): string {
-
+  // openBtn
+  // downloadBBtn
+  // deleteBtn
+  getThumbnail(file: File): void {
+    console.log(file.type);
+    switch (file.type) {
+      case 'image/jpeg':
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event: ProgressEvent) => {
+          this.thumbnailPath = (event.target as FileReader).result;
+        };
+        break;
+      default:
+        this.thumbnailPath = 'test';
+    }
   }
 
   open(): void {
-
+    console.log('OPEN()');
   }
 
   remove(): void  {
-
+    console.log('remove()');
   }
-  */
+
+  download(): void {
+    console.log('download()');
+  }
 }

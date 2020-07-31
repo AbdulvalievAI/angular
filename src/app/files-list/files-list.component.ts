@@ -4,8 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-files-list',
   templateUrl: './files-list.component.html',
   styleUrls: [
-    './files-list.component.sass',
-    '../../../node_modules/material-icons/iconfont/material-icons.scss'
+    './files-list.component.sass'
   ]
 })
 export class FilesListComponent implements OnInit {
