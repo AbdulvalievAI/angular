@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-files-list',
@@ -7,13 +7,6 @@ import { Component, OnInit } from '@angular/core';
     './files-list.component.sass'
   ]
 })
-export class FilesListComponent implements OnInit {
-  selectedFiles: Array<File> = [];
-
-  handleFileInput(newSelectedFiles: Array<File>): void {
-    console.log('FilesListComponent | handleFileInput | files', newSelectedFiles);
-    this.selectedFiles.push(...newSelectedFiles);
-  }
-
-  ngOnInit(): void {}
+export class FilesListComponent {
+  @Input() selectedFiles: Array<File>;
 }

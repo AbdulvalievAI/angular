@@ -1,0 +1,10 @@
+<label class="addFileBtn">
+  <input type="file"
+         name="file"
+         id="filePicker"
+         class="filePicker"
+         multiple accept="image/*,image/jpeg,image/png"
+         (change)="onChangeSelectedFiles.emit($event)">
+  <img src="../../assets/attach_file-24px.svg">
+  Добавить файл
+</label>

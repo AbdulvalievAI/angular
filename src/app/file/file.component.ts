@@ -15,16 +15,15 @@ export class FileComponent implements OnInit {
   createDate: Date;
   thumbnail: string;
   path: string;
-  isShowProgress: boolean;
-  isShowMenu: boolean;
-  isShowOpenBtn: boolean;
-  isShowDeleteBtn: boolean;
-  isShowDownloadBBtn: boolean;
+  isShowProgress = true;
+  isShowMenu = false;
+  isShowOpenBtn = true;
+  isShowDeleteBtn = true;
+  isShowDownloadBBtn = true;
 
   constructor() {
     this.id = uuid.v4();
     this.createDate = new Date();
-    this.showProgress(true);
   }
 
   ngOnInit(): void {
@@ -32,21 +31,19 @@ export class FileComponent implements OnInit {
     this.getThumbnail(this.file);
   }
 
-  // openBtn
-  // downloadBBtn
-  // deleteBtn
   getThumbnail(file: File): void {
     console.log(file.type);
     switch (file.type) {
       case 'image/jpeg':
         const reader = new FileReader();
-        reader.readAsDataURL(file);
         reader.onload = (event: ProgressEvent) => {
           this.thumbnail = (event.target as FileReader).result.toString();
           this.path = (event.target as FileReader).result.toString();
           console.log(this.path);
           this.showProgress(false);
+          this.showMenu(true);
         };
+        setTimeout(() => reader.readAsDataURL(file), 0);
         break;
       default:
         this.thumbnail = 'test';
@@ -67,9 +64,14 @@ export class FileComponent implements OnInit {
   download(): void {
     console.log('download()');
     this.showProgress(true);
+    this.showMenu(false);
   }
 
   showProgress(isShow: boolean): void {
     this.isShowProgress = isShow;
+  }
+
+  showMenu(isShow: boolean): void {
+    this.isShowMenu = isShow;
   }
 }

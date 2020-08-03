@@ -1,0 +1,33 @@
+@import "src/variables"
+
+input
+  opacity: 0
+  visibility: hidden
+  position: absolute
+
+label
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  border: black 1px solid
+  cursor: pointer
+  text-align: center
+  background-color: white
+  transition: 0.3s
+  width: $sizeParent
+  min-width: $sizeParent
+  height: $sizeParent
+  min-height: $sizeParent
+  border-radius: $brParent
+  margin: $mParent
+  box-shadow: $boxShadowParent
+  img
+    width: 50px
+    margin-bottom: 20px
+  &:hover
+    transition: 0.3s
+    background-color: $backGHover
+  &:active
+    transition: 0.3s
+    background-color: $backGActive

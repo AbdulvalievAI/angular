@@ -1,13 +1,14 @@
 <div class="fileContent">
-  <div class="thumb" style="overflow: hidden;">
+  <div class="thumb" *ngIf="thumbnail" style="overflow: hidden;">
     <img style="height: 100%; object-fit: cover; width: 100%;"  src="{{thumbnail}}">
   </div>
 
-  <div [class.menuContainer]="!isShowProgress"
-       [class.menuContainerProgress]="isShowProgress">
-    <img class="openBtn" src="assets/visibility-24px.svg" (click)="open()">
-    <img class="downloadBBtn" src="assets/vertical_align_bottom-24px.svg" (click)="download()">
-    <img class="deleteBtn" src="assets/delete_outline-24px.svg" (click)="delete()">
+  <div class="menuContainer" *ngIf="isShowMenu">
+    <img *ngIf="isShowOpenBtn" class="openBtn" src="assets/visibility-24px.svg" (click)="open()">
+    <img *ngIf="isShowDownloadBBtn" class="downloadBBtn" src="assets/vertical_align_bottom-24px.svg" (click)="download()">
+    <img *ngIf="isShowDeleteBtn" class="deleteBtn" src="assets/delete_outline-24px.svg" (click)="delete()">
+  </div>
+  <div class="progressContainer" *ngIf="isShowProgress">
     <img class="progress" src="assets/progress.svg">
   </div>
 </div>

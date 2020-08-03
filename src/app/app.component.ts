@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'files-list';
+  selectedFiles: Array<File> = [];
+
+  handlerFileInput(files: Array<File>): void {
+    console.log('handleFileInput | files', typeof files);
+    this.selectedFiles.push(...files);
+  }
 }
