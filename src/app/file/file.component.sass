@@ -1,24 +1,36 @@
 @import "src/variables"
+p
+  overflow-wrap: break-word
+  margin-top: 10px
+
 .fileContent
+  width: $sizeParent
+  height: $sizeParent
+  position: relative
   &:hover .menuContainer
     transition: 0.3s
     opacity: 1
 
 .thumb
-  width: $sizeParent
-  height: $sizeParent
+  width: inherit
+  height: inherit
   border-radius: $brParent
   box-shadow: $boxShadowParent
   position: absolute
+  img
+    height: 100%
+    object-fit: cover
+    width: 100%
 
 .menuContainer
-  width: $sizeParent
-  height: $sizeParent
+  width: inherit
+  height: inherit
   border-radius: $brParent
-  position: relative
+  position: absolute
   opacity: 0
   display: flex
   justify-content: space-evenly
+  background-color: $backGHover
   flex-wrap: wrap
   align-items: center
   .openBtn, .downloadBBtn, .deleteBtn
@@ -32,22 +44,24 @@
       background-color: $backGActive
       width: 53px
       padding: 1px
-  .progress
-    width: 70px
-    display: none
 
-.progressContainer
-  width: $sizeParent
-  height: $sizeParent
+.container
+  width: inherit
+  height: inherit
   border-radius: $brParent
-  position: relative
+  position: absolute
   background-color: $backGHover
-  opacity: 1
-  display: flex
+  display: grid
   justify-content: space-evenly
   flex-wrap: wrap
   align-items: center
-  .progress
+  img
     width: 70px
+  p
+    color: white
+    justify-self: center
+    padding: 3px
+    background-color: black
+    border-radius: 5px
 
 

@@ -1,6 +1,11 @@
 <div class="fileContent">
   <div class="thumb" *ngIf="thumbnail" style="overflow: hidden;">
-    <img style="height: 100%; object-fit: cover; width: 100%;"  src="{{thumbnail}}">
+    <img src="{{thumbnail}}">
+  </div>
+
+  <div class="container"  *ngIf="isError">
+    <img src="../../assets/error-outline-red.svg">
+    <p>{{messageError}}</p>
   </div>
 
   <div class="menuContainer" *ngIf="isShowMenu">
@@ -8,8 +13,9 @@
     <img *ngIf="isShowDownloadBBtn" class="downloadBBtn" src="assets/vertical_align_bottom-24px.svg" (click)="download()">
     <img *ngIf="isShowDeleteBtn" class="deleteBtn" src="assets/delete_outline-24px.svg" (click)="delete()">
   </div>
-  <div class="progressContainer" *ngIf="isShowProgress">
-    <img class="progress" src="assets/progress.svg">
+
+  <div class="container" *ngIf="isShowProgress">
+    <img src="../../assets/progress.svg">
   </div>
 </div>
 

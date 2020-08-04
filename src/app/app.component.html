@@ -1,4 +1,4 @@
 <app-add-file-btn
-  (onChangeSelectedFiles)="handlerFileInput($event.target.files)"
+  (changeSelectedFiles)="handlerFileInput($event)"
 ></app-add-file-btn>
 <app-files-list [selectedFiles]="selectedFiles"></app-files-list>

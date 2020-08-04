@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-add-file-btn',
@@ -6,5 +6,9 @@ import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./add-file-btn.component.sass']
 })
 export class AddFileBtnComponent {
-  @Output() onChangeSelectedFiles = new EventEmitter();
+  @Output() public changeSelectedFiles: EventEmitter<Array<File>> = new EventEmitter<Array<File>>();
+
+  public onChangeSelectedFiles(files: Array<File>): void {
+    this.changeSelectedFiles.emit(files);
+  }
 }
