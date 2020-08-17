@@ -1,0 +1,10 @@
+<p>BREADCRUMBS</p>
+<nav>
+  <ul>
+    <li *ngFor="let page of pages; let i = index;">
+      <a *ngIf="pages[i + 1]" [routerLink]="page.url"><p class="page-title">{{page.title}}</p></a>
+      <p *ngIf="!pages[i + 1]" class="page-title">{{page.title}}</p>
+      <p class="separator" *ngIf="pages[i + 1]">/</p>
+    </li>
+  </ul>
+</nav>

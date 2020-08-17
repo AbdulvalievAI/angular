@@ -1,0 +1,20 @@
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  li {
+    display: flex;
+  }
+}
+a {
+  text-decoration: none;
+}
+.page-title {
+  font-size: 14px;
+  color: black;
+}
+.separator {
+  margin-left: 3px;
+  margin-right: 3px;
+  font-size: 14px;
+}
