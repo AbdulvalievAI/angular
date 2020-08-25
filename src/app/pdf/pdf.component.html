@@ -1,0 +1,14 @@
+<h2>PDF</h2>
+<div>
+  <input
+    accept="application/pdf"
+    multiple
+    style="display: none"
+    #vacationStatementFileInput
+    type="file" (change)="selectFilesHandler($event.target.files)">
+  <button type="button" (click)="vacationStatementFileInput.click()">Добавить</button>
+</div>
+<div class="pdfContent">
+  <canvas class="pdfViewer" id="the-canvas"></canvas>
+
+</div>
