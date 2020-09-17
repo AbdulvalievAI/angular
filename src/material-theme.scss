@@ -1,0 +1,125 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$ui-kit-primary-palette: (
+  50: #e9ecf4,
+  100: #c8d0e3,
+  200: #a4b0d0,
+  300: #7f90bd,
+  400: #6379af,
+  500: #4861a1,
+  600: #415999,
+  700: #384f8f,
+  800: #304585,
+  900: #213374,
+  A100: #b3c2ff,
+  A200: #8099ff,
+  A400: #4d70ff,
+  A700: #345cff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$ui-kit-accent-palette: (
+  50: #e7eaf1,
+  100: #c3cadc,
+  200: #9ca7c5,
+  300: #7484ae,
+  400: #56699c,
+  500: #384f8b,
+  600: #324883,
+  700: #2b3f78,
+  800: #24366e,
+  900: #17265b,
+  A100: #96aaff,
+  A200: #6381ff,
+  A400: #3058ff,
+  A700: #1743ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$ui-kit-warn-palette: (
+  50: #fce7e7,
+  100: #f7c4c2,
+  200: #f29c9a,
+  300: #ed7472,
+  400: #e95753,
+  500: #e53935,
+  600: #e23330,
+  700: #de2c28,
+  800: #da2422,
+  900: #d31716,
+  A100: #ffffff,
+  A200: #ffd1d1,
+  A400: #ff9f9e,
+  A700: #ff8585,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$ui-kit-primary: mat-palette($ui-kit-primary-palette);
+$ui-kit-accent: mat-palette($ui-kit-accent-palette);
+$ui-kit-warn: mat-palette($ui-kit-warn-palette);
+
+$theme: mat-light-theme($ui-kit-primary, $ui-kit-accent, $ui-kit-warn);
+
+// @include angular-material-theme($theme);
+
+$custom-typography: mat-typography-config(
+  $font-family: "Lato, Sans-serif",
+);
+
+@include mat-core($custom-typography);
+
+@import "src/app/ui-kit-slider/ui-kit-slider.theme";
+@include ui-kit-slider-theme($theme);
+
+$custom-typography-slider: mat-typography-config(
+  $font-family: 'Source Sans Pro',
+  $headline: mat-typography-level(16px, 21px, 600),
+  $body-1: mat-typography-level(12px, 16px, 600)
+);
+@include ui-kit-slider-typography($custom-typography-slider)
