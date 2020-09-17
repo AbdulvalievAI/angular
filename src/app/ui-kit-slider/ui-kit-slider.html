@@ -1,4 +1,4 @@
-<ul class="titles-list">
+<ul class="titles-list" *ngIf="dataDates">
   <li
     [ngClass]="{
       'titles-list__item': true,
@@ -18,7 +18,7 @@
     <div class="mat-slider-focus-ring"></div>
     <div class="mat-slider-thumb"></div>
     <div class="mat-slider-thumb-label">
-      <span class="mat-slider-thumb-label__label-text-date">{{date | date:'LLLL y'}}</span>
+      <span *ngIf="dataDates" class="mat-slider-thumb-label__label-text-date">{{date | date:'LLLL y'}}</span>
       <span class="mat-slider-thumb-label__label-text-value">{{displayValue  | currency: 'RUB':'symbol-narrow':'1.0-2'}}</span>
       <div class="mat-slider-thumb-label__arrow"></div>
     </div>

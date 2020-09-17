@@ -237,9 +237,11 @@ export class UiKitSliderComponent extends _MatSliderMixinBase
     if (this._value === null) {
       this.value = this._min;
     }
-    const year = this.sliderService.getActiveYear(this.boundariesYears, this.dataDates, this._value);
-    const month = this.sliderService.getActiveMonth(year, this.boundariesYears, this._value);
-    this.date = new Date(year, month, 1);
+    if (this.dataDates) {
+      const year = this.sliderService.getActiveYear(this.boundariesYears, this.dataDates, this._value);
+      const month = this.sliderService.getActiveMonth(year, this.boundariesYears, this._value);
+      this.date = new Date(year, month, 1);
+    }
     return this._value;
   }
   set value(v: number | null) {
@@ -915,7 +917,6 @@ export class UiKitSliderComponent extends _MatSliderMixinBase
 
   ngOnInit() {
     if (this.dataDates) { this.boundariesYears = this.sliderService.getBoundariesYears(this.dataDates); }
-    console.log('===>this.boundariesYears', this.boundariesYears);
   }
 }
 
